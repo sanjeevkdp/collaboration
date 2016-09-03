@@ -1,0 +1,3 @@
+com\niit\collaboration\controller\PageController.class
+com\niit\collaboration\config\CollaborationConfiguration.class
+com\niit\collaboration\config\CollaborationInitializer.class
