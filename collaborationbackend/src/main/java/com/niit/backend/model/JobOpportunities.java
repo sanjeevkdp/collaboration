@@ -2,7 +2,7 @@ package com.niit.backend.model;
 
 import java.util.UUID;
 
-public class JobOportunities {
+public class JobOpportunities {
 private String jobOportunities_id;
 private String title;
 private String description;
@@ -31,7 +31,7 @@ public String getCreatedAt() {
 public void setCreatedAt(String createdAt) {
 	this.createdAt = createdAt;
 }
-public JobOportunities(){
+public JobOpportunities(){
 	this.jobOportunities_id="JOB"+UUID.randomUUID().toString().substring(30).toUpperCase();
 }
 }
