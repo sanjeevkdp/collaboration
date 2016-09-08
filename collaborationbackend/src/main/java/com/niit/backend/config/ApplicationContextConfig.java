@@ -33,7 +33,7 @@ public class ApplicationContextConfig {
 	public DataSource getOracleDataSource(){
 		DriverManagerDataSource dataSource=  new DriverManagerDataSource();
 		dataSource.setDriverClassName("MySQL");
-		dataSource.setUrl("//localhost:1521");		
+		dataSource.setUrl("hr@//localhost:1521/orcl");		
 		dataSource.setUsername("hr");
 		dataSource.setPassword("hr");
 		return dataSource;
@@ -42,7 +42,7 @@ public class ApplicationContextConfig {
 	private Properties getHibernateProperties(){	
 	Properties properties=new Properties();
 	properties.put("hibernate.show_sql", "true");
-	properties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
+	properties.put("hibernate.dialect","jdbc.oracle.odbc.connection");
 	return properties;
 	}
 	@Autowired
