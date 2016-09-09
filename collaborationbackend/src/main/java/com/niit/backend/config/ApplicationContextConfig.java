@@ -32,8 +32,8 @@ public class ApplicationContextConfig {
 	@Bean(name="dataSource")
 	public DataSource getOracleDataSource(){
 		DriverManagerDataSource dataSource=  new DriverManagerDataSource();
-		dataSource.setDriverClassName("MySQL");
-		dataSource.setUrl("hr@//localhost:1521/orcl");		
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl");		
 		dataSource.setUsername("hr");
 		dataSource.setPassword("hr");
 		return dataSource;
@@ -42,11 +42,13 @@ public class ApplicationContextConfig {
 	private Properties getHibernateProperties(){	
 	Properties properties=new Properties();
 	properties.put("hibernate.show_sql", "true");
-	properties.put("hibernate.dialect","jdbc.oracle.odbc.connection");
+	properties.put("hibernate.dialect","org.hibernate.dialect.OracleDialect");
 	return properties;
 	}
+	
 	@Autowired
-	@Bean(name="sessionFactory")
+	@Bean
+	
 	public SessionFactory getSessionFactory(DataSource dataSource){
 		LocalSessionFactoryBuilder sessionBuilder= new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
