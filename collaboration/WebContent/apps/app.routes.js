@@ -10,4 +10,10 @@ app.config(['$routeProvider',function($routeProvider) {
 		controller:"homeController",
 		
 			})
+	.when('/login/',{
+
+		templateUrl:"apps/components/views/login.html",
+		controller:"loginController",
+		
+			})
 }]);

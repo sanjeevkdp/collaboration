@@ -22,7 +22,7 @@ limitations under the License.*/
 /* ------------------------------- */
 
  body {
-    background-color: #f8f8f8;
+    background-color: #e6e6ff;
 }
 
 /* Wrappers */
@@ -32,7 +32,7 @@ limitations under the License.*/
  #wrapper {
     width: 100%;
     margin-top: 55px!important; 
-    background-color:#04B173; 
+    background-color:#00001a; 
 }
 
 #page-wrapper {
@@ -46,7 +46,7 @@ limitations under the License.*/
     
 
 .navbar-static-side ul li {
-    border-bottom:1px solid #84B899 !important;
+    border-bottom:1px solid #9999ff !important;
 }
 
 /* Navigation */
