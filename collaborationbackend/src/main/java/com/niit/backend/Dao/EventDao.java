@@ -13,7 +13,7 @@ public interface EventDao {
 	
 	Event get(String event_id);
 		
-		List<Event> list();
+		List<Event> listAllEvents();
 		
-		Event getEventByName(String title);
+		
 }

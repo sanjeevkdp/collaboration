@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.niit.backend.model.Authorities;
 import com.niit.backend.model.Blog;
@@ -26,6 +27,7 @@ import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
 @Configuration
+@EnableWebMvc
 @ComponentScan("com.niit.backend")
 @EnableTransactionManagement
 public class ApplicationContextConfig {

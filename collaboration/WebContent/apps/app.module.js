@@ -1,6 +1,11 @@
-///<script src="../../../assets/scripts/angular.js"></script
-///<script src="../../../assets/scripts/angular-route.js"></script
+///<script src="../../../assets/scripts/angular.js"></script>
+///<script src="../../../assets/scripts/angular-route.js"></script>
 
-var app = angular.module('collaborationApp', ['collaborationAppHome','ngRoute']
+var app = angular.module('collaborationApp', [
+	'collaborationAppHome',
+	'collaborationAppForum',
+	'collaborationAppBlog',
+	'collaborationAppEvent',
+	'ngRoute']
 
 	);

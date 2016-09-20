@@ -3,6 +3,7 @@ package com.niit.backend.DaoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,9 +35,17 @@ SessionFactory sessionFactory;
 	}
 
 	@Override
-	public List<Blog> list() {
+	public List<Blog> listAllBlog() {
 		// TODO Auto-generated method stub
-		return null;
+		/*@SuppressWarnings("unchecked")
+		
+		List<Blog> listBlog  = (List<Blog>) sessionFactory.getCurrentSession()
+		.createCriteria(Blog.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listBlog;*/
+		String hql="from Blog";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Blog> listBlog=query.getResultList();
+		return listBlog;
 	}
 
 	@Override

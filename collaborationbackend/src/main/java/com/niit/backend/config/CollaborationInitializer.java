@@ -1,6 +1,10 @@
 package com.niit.backend.config;
 
+import javax.servlet.Filter;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import com.niit.backend.context.CORSFilter;
 
 public class CollaborationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -21,5 +25,10 @@ public class CollaborationInitializer extends AbstractAnnotationConfigDispatcher
 		// TODO Auto-generated method stub
 		return new String [] {"/"};
 	}
+	 @Override
+	    protected Filter[] getServletFilters() {
+	        Filter [] singleton = { new CORSFilter() };
+	        return singleton;
+	    }
 
 }

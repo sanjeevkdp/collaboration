@@ -1,0 +1,5 @@
+ ORA-00904: "BLOGCOMMEN_"."BLOG_ID": invalid identifier
+ solution:-
+ 
+ @Column(s) not allowed on a @ManyToOne property: com.niit.backend.model.BlogComment.blog
+ solution:- blogcomment test should be in the same class of blog because( when comment created the value of blog is null there is no blog.)

@@ -6,20 +6,18 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.AuthoritiesDao;
 import com.niit.backend.model.Authorities;
-
+@Repository("AuthoritiesDao")
 public class AuthoritiesDaoImpl implements AuthoritiesDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public AuthoritiesDaoImpl(SessionFactory sessionFactory) {
-			this.sessionFactory = sessionFactory;
 
-		}
 	@Transactional
 	public void saveOrUpdate(Authorities authorities) {
 		// TODO Auto-generated method stub

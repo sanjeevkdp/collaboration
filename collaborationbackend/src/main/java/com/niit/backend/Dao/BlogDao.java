@@ -11,7 +11,7 @@ public interface BlogDao {
 		
 	Blog get(String blog_id);
 		
-		List<Blog> list();
+		List<Blog> listAllBlog();
 		
 		Blog getBlogByName(String title);
 }

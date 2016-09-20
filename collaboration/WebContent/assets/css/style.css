@@ -327,3 +327,8 @@ table.dataTable thead .sorting:after {
     margin: 15px 0;
 }
 
+/* footer.......... */
+.footer{
+    height: 80px;
+
+}

@@ -10,9 +10,10 @@
 <link rel="stylesheet" href="assets/plugins/pace/pace-theme-big-counter.css" />
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/main-style.css" />
+<link rel="stylesheet" href="assets/css/custom.css" />
 <!-- Page-Level CSS -->
 <link rel="stylesheet" href="assets/plugins/morris/morris-0.4.3.min.css" />
-
+<link rel="stylesheet" href="assets/plugins/dataTables/dataTables.bootstrap.css" />
 <!-- angular js -->
 
 <script type="text/javascript" src="assets/scripts/angular.js"></script>
@@ -26,10 +27,26 @@
 <script type="text/javascript" src="assets/scripts/siminta.js"></script>
 
 
+
 <!--common lay out -->
 <script type="text/javascript" src="apps/shared/menu/menuDirectives.js"></script>
 <script type="text/javascript" src="apps/shared/sideMenu/sideMenuDirectives.js"></script>
 <script type="text/javascript" src="apps/components/views/homeDirectives.js"></script>
+
+<!-- forum scripts -->
+<script type="text/javascript" src="apps/components/views/forumDirectives.js"></script>
+
+<!-- blog scripts -->
+<script type="text/javascript" src="apps/components/views/blog/blogService.js"></script>
+<script type="text/javascript" src="apps/components/views/blog/blogController.js"></script>
+
+
+<!-- event scripts -->
+<script type="text/javascript" src="apps/components/views/event/eventService.js"></script>
+<script type="text/javascript" src="apps/components/views/event/eventController.js"></script>
+
+
+<!-- footer -->
 <script type="text/javascript" src="apps/shared/footer/footerDirectives.js"></script>
 
 
@@ -39,9 +56,10 @@
 <body>
 	<menus-bar></menus-bar>
 	<sidemenu-bar></sidemenu-bar>
+    
 	<div ng-view></div>
 
-	
+	<my-footer></my-footer>
 	<!-- Core Scripts - Include with every page -->
 	<script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 	<script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
