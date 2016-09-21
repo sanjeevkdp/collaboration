@@ -16,11 +16,10 @@ blogService.factory('BlogService', ['$http','$q', function($http,$q){
                 deferred.resolve(response.data);
             },
             function(errResponse){
-                console.error('Error while fetching Users');
+                console.error('Error while fetching Blogs');
                 deferred.reject(errResponse);
             }
         );
         return deferred.promise;
     }
-	
 }]);

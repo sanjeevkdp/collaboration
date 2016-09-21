@@ -13,6 +13,7 @@ public class BlogCommentTest {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit.backend");
 		context.refresh();
+		
 	    Blog blog= (Blog) context.getBean("blog");
 	    
 		BlogComment blogComment=(BlogComment) context.getBean("blogComment");

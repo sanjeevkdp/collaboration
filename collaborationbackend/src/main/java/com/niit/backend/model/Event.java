@@ -41,5 +41,6 @@ public void setDescription(String description) {
 }
 public Event(){
 	this.event_id="EVT"+UUID.randomUUID().toString().substring(30).toUpperCase();
+	
 }
 }

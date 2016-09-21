@@ -14,5 +14,4 @@ blog.controller('blogController', ['BlogService','$http', function(BlogService,$
 			console.error('Error while fetching the blogs');
 		})
 	}
-	
 }]);

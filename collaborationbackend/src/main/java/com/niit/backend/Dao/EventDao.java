@@ -14,6 +14,14 @@ public interface EventDao {
 	Event get(String event_id);
 		
 		List<Event> listAllEvents();
+
+		boolean isEventExist(Event event);
+
+		Event findById(long event_id);
+
+		void deleteUserById(long event_id);
+
+		void deleteAllUsers();
 		
 		
 }

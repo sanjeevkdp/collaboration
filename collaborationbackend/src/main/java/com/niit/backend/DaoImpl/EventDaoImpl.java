@@ -51,6 +51,30 @@ public class EventDaoImpl implements EventDao {
 	
 	}
 
+	@Override
+	public boolean isEventExist(Event event) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Event findById(long event_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUserById(long event_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAllUsers() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }
