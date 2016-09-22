@@ -58,14 +58,23 @@ public class EventDaoImpl implements EventDao {
 	}
 
 	@Override
-	public Event findById(long event_id) {
+	public Event findById(String event_id) {
 		// TODO Auto-generated method stub
+		String hql = "from Event where event_id=" + "'" + event_id + "'";
+		Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		List<Event> listEvent = (List<Event>) query.getResultList();
+		if (listEvent  != null && !listEvent .isEmpty()) {
+			return listEvent.get(0);
+		}
 		return null;
 	}
-
+	
 	@Override
-	public void deleteUserById(long event_id) {
+	public void deleteUserById(String event_id) {
 		// TODO Auto-generated method stub
+		Event eventToDelete = new Event();
+		eventToDelete.setEvent_id(event_id);
+		sessionFactory.getCurrentSession().delete(eventToDelete);
 		
 	}
 

@@ -45,6 +45,7 @@ public class ApplicationContextConfig {
 	Properties properties=new Properties();
 	properties.put("hibernate.show_sql", "true");
 	properties.put("hibernate.dialect","org.hibernate.dialect.OracleDialect");
+	properties.put("hibernate.format_sql","true");
 	return properties;
 	}
 	

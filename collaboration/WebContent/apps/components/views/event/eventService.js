@@ -4,7 +4,9 @@ eventService.factory('EventService', ['$http','$q', function($http,$q){
      
      var factory={
      	fetchAllEvent: fetchAllEvent,
-     	createEvent:createEvent
+     	createEvent:createEvent,
+        updateEvent:updateEvent,
+        deleteEvent:deleteEvent
      };
 	return factory;
 

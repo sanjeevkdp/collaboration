@@ -17,9 +17,9 @@ public interface EventDao {
 
 		boolean isEventExist(Event event);
 
-		Event findById(long event_id);
+		Event findById(String event_id);
 
-		void deleteUserById(long event_id);
+		void deleteUserById(String event_id);
 
 		void deleteAllUsers();
 		
