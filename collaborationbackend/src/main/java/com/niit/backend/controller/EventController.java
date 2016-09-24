@@ -25,6 +25,9 @@ public class EventController {
 	@Autowired
 	Event event;
 	
+	//---------------------fetchAllEvents----------------------------------------------
+	
+	
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public ResponseEntity<List<Event>> listAllEvents(){
 		List<Event> events = eventDao.listAllEvents();
@@ -54,7 +57,7 @@ public class EventController {
   }
 
    
-  //------------------- Update a User --------------------------------------------------------
+  //------------------- Update a Event--------------------------------------------------------
   
   @RequestMapping(value = "/events/{event_id}", method = RequestMethod.PUT)
   public ResponseEntity<Event> updateUser(@PathVariable("event_id") String event_id, @RequestBody Event event) {
@@ -76,15 +79,15 @@ public class EventController {
       eventDao.saveOrUpdate(currentEvent);
       return new ResponseEntity<Event>(currentEvent, HttpStatus.OK);
   } 
-//------------------- Delete a User --------------------------------------------------------
+//------------------- Delete a Event --------------------------------------------------------
   
   @RequestMapping(value = "/events/{event_id}", method = RequestMethod.DELETE)
   public ResponseEntity<Event> deleteUser(@PathVariable("event_id") String event_id) {
-      System.out.println("Fetching & Deleting User with id " + event_id);
+      System.out.println("Fetching & Deleting event with event_id " + event_id);
 
       Event event = eventDao.findById(event_id);
       if (event == null) {
-          System.out.println("Unable to delete. User with event_id " + event_id + " not found");
+          System.out.println("Unable to delete. Event with event_id " + event_id + " not found");
           return new ResponseEntity<Event>(HttpStatus.NOT_FOUND);
       }
 

@@ -7,14 +7,12 @@ import com.niit.backend.model.ForumPostComment;
 public interface ForumPostCommentDao {
 
 	void saveOrUpdate(ForumPostComment forumPostComment);
-
-	void editForumPostComment(ForumPostComment forumPostComment);
 		
 	void deleteForumPostComment(ForumPostComment forumPostComment);
 	
-	ForumPostComment get(String forumPostComment_id);
+	ForumPostComment getById(String forumPostComment_id);
 		
-		List<ForumPostComment> list();
+		List<ForumPostComment> listAllPostComments();
 		
 		
 }

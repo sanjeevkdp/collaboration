@@ -22,25 +22,19 @@ public class ForumPostCommentDaoImpl implements ForumPostCommentDao {
 	}
 
 	@Override
-	public void editForumPostComment(ForumPostComment forumPostComment) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void deleteForumPostComment(ForumPostComment forumPostComment) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public ForumPostComment get(String forumPostComment_id) {
+	public ForumPostComment getById(String forumPostComment_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ForumPostComment> list() {
+	public List<ForumPostComment> listAllPostComments() {
 		// TODO Auto-generated method stub
 		return null;
 	}

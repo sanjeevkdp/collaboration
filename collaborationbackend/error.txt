@@ -1,5 +1,13 @@
  ORA-00904: "BLOGCOMMEN_"."BLOG_ID": invalid identifier
- solution:-
+ solution:-create table column with name blog_id
  
  @Column(s) not allowed on a @ManyToOne property: com.niit.backend.model.BlogComment.blog
  solution:- blogcomment test should be in the same class of blog because( when comment created the value of blog is null there is no blog.)
+ 
+ event id should not be null;
+ solution:- setid from restController(sir)
+ 
+ event id must be String;
+ solution :- by change the type define of id ,
+ 
+ 

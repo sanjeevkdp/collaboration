@@ -7,11 +7,10 @@ import com.niit.backend.model.BlogComment;
 public interface BlogCommentDao {
 	void saveOrUpdate(BlogComment blogComment);
 
-	void editBlogComment(BlogComment blogComment);
+		BlogComment getById(String blogComment_id);
 		
-	BlogComment get(String user_id);
+		List<BlogComment> listAllComments();
 		
-		List<BlogComment> list();
+		void deleteBlogCommentById(String blogComment_id);
 		
-		BlogComment getBlogCommentByName(String userName);
 }

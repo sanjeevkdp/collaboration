@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.BlogDao;
 import com.niit.backend.model.Blog;
+import com.niit.backend.model.Event;
 @Repository("blogDao")
 @Transactional
 public class BlogDaoImpl implements BlogDao {
@@ -49,9 +50,47 @@ SessionFactory sessionFactory;
 	}
 
 	@Override
-	public Blog getBlogByName(String title) {
+	public Blog findByTitle(String title) {
 		// TODO Auto-generated method stub
+		String hql = "from Blog where title=" + "'" + title + "'";
+		Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		List<Blog> listBlog = (List<Blog>) query.getResultList();
+		if (listBlog  != null && !listBlog .isEmpty()) {
+			return listBlog.get(0);
+		}
 		return null;
+	}
+
+	@Override
+	public boolean isBlogExist(Blog blog) {
+		// TODO Auto-generated method stub
+		return findByTitle(blog.getTitle())!=null;
+	}
+
+	@Override
+	public Blog findById(String blog_id) {
+		// TODO Auto-generated method stub
+		String hql = "from Blog where blog_id=" + "'" + blog_id + "'";
+		Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		List<Blog> listBlog= (List<Blog>) query.getResultList();
+		if (listBlog!= null && !listBlog.isEmpty()) {
+			return listBlog.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public void deleteBlogById(String blog_id) {
+		// TODO Auto-generated method stub
+		Blog blogToDelete = new Blog();
+		blogToDelete.setBlog_id(blog_id);
+		sessionFactory.getCurrentSession().delete(blogToDelete);
+	}
+
+	@Override
+	public void deleteAllBlogs() {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().delete(getClass());
 	}
 
 }
