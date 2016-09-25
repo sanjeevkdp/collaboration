@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.JobOpportunitiesDao;
 import com.niit.backend.model.JobOpportunities;
-@Repository("JobOpportunitiesDao")
+@Repository("jobOpportunitiesDao")
 @Transactional
 public class JobOpportunitiesDaoImpl implements JobOpportunitiesDao {
 
@@ -18,6 +18,7 @@ public class JobOpportunitiesDaoImpl implements JobOpportunitiesDao {
 	@Override
 	public void saveOrUpdate(JobOpportunities jobOpportunities) {
 		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().saveOrUpdate(jobOpportunities);
 
 	}
 

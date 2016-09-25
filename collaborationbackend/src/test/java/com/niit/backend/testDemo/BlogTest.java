@@ -32,7 +32,7 @@ public static void main(String args[]){
 	blogComment.setBlog(blog);
 	blogCommentDao.saveOrUpdate(blogComment);
 	
-	BlogComment blogComment1=(BlogComment) context.getBean("blogComment");
+	BlogComment blogComment1=new BlogComment();
 	BlogCommentDao blogCommentDao1=(BlogCommentDao) context.getBean("blogCommentDao");
 	blogComment1.setCom_createdAt(new Date());
 	blogComment1.setDescription("wow nice one........................ ");
@@ -40,7 +40,7 @@ public static void main(String args[]){
 	blogComment1.setBlog(blog);
 	blogCommentDao1.saveOrUpdate(blogComment1);
 	
-	BlogComment blogComment2=(BlogComment) context.getBean("blogComment");
+	BlogComment blogComment2=new BlogComment();
 	BlogCommentDao blogCommentDao2=(BlogCommentDao) context.getBean("blogCommentDao");
 	blogComment2.setCom_createdAt(new Date());
 	blogComment2.setDescription("amaing................. ");
@@ -48,7 +48,7 @@ public static void main(String args[]){
 	blogComment2.setBlog(blog);
 	blogCommentDao2.saveOrUpdate(blogComment2);
 	
-	BlogComment blogComment3=(BlogComment) context.getBean("blogComment");
+	BlogComment blogComment3=new BlogComment();
 	BlogCommentDao blogCommentDao3=(BlogCommentDao) context.getBean("blogCommentDao");
 	blogComment3.setCom_createdAt(new Date());
 	blogComment3.setDescription("verygood..........");

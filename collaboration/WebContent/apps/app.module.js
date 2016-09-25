@@ -6,6 +6,7 @@ var app = angular.module('collaborationApp', [
 	'collaborationAppForum',
 	'collaborationAppBlog',
 	'collaborationAppEvent',
+	'collaborationAppBlogComment',
 	'ngRoute']
 
 	);

@@ -43,22 +43,28 @@
                         <p> <b>{{blog.blog_comments.length}} Comments</b> <a class="pull-right"  ng-click="blog.toggle=true" href="">Comments</a></p>  
                         <br>     
                         <div  ng-class="{'hidden':!blog.toggle}">
+                            <div ng-controller="blogCommentController as commentCtrl">
+                            <form ng-submit="commentCtrl.submitComment()">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Comment...">
+                            <input type="hidden" ng-model="blogCtrl.blog.blog_id===commentCtrl.blogComment.blog" name="">
+                                <input type="text" class="form-control" ng-model="commentCtrl.blogComment.description" placeholder="Comment...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        Comment
-                                    </button>
+                                    <input class="btn btn-primary" type="submit" value="Comment" ng-model="blogCtrl.blog.blog_id"  />
+                                    
                                 </span>
                             </div>
+                            </form>
+                         </div>
                             <table class="table table-striped" >                                     
                                <tbody>
                                    <tr ng-repeat="blg in blog.blog_comments">
-                                       <td>{{blg.description}}</td>
+                                       <td>{{blg.description}}
+                                       </td>
                                    </tr> 
+                                   <tr><td><button ng-if="blog.toggle" ng-click="blog.toggle=false" class="pull-right"><span class="fa fa-angle-up"></span></button></td></tr>
                                </tbody>
                            </table>
-                           <button ng-if="blog.toggle" ng-click="blog.toggle=false" class="pull-right"><span class="fa fa-angle-up"></span></button>
+                           
                        </div>  
                    </div>  
                </div>

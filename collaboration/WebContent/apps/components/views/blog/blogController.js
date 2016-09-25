@@ -1,16 +1,16 @@
 ///<script src="../../../assets/scripts/angular.js"></script>
 ///<script src="../../../assets/scripts/angular-route.js"></script>
 var blog=angular.module('collaborationAppBlog',['controllerAppBlogService','ngRoute']);
-blog.controller('blogController', ['BlogService','$http', function(BlogService,$http){
+blog.controller('blogController', ['BlogService', function(BlogService){
 	var self=this;
 	self.toggle=true;
-	self.blog={blog_id:'',title:'',desscription:''}
+	self.blog={blog_id:'',title:'',desscription:'',blog:''}
 	self.blogs=[];
 	self.submit=submit;
 	self.reset=reset;
     self.edit=edit;
+    self.getId=getId;
     self.remove=remove;
-
 
 	fetchAllBlog();
 	function fetchAllBlog () {
@@ -64,6 +64,15 @@ blog.controller('blogController', ['BlogService','$http', function(BlogService,$
 	}
 	function edit(blog_id){
 		console.log('id to be edited', blog_id);
+		for(var i = 0; i < self.blogs.length; i++){
+			if(self.blogs[i].blog_id === blog_id) {
+				self.blog= angular.copy(self.blogs[i]);
+				break;
+			}
+		}
+	}
+	function getId(blog_id){
+		console.log('Get id', blog_id);
 		for(var i = 0; i < self.blogs.length; i++){
 			if(self.blogs[i].blog_id === blog_id) {
 				self.blog= angular.copy(self.blogs[i]);

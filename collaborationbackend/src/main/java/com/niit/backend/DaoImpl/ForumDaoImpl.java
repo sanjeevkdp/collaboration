@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.backend.Dao.ForumDao;
 import com.niit.backend.model.Event;
 import com.niit.backend.model.Forum;
-@Repository("ForumDao")
+@Repository("forumDao")
 @Transactional
 public class ForumDaoImpl implements ForumDao {
 

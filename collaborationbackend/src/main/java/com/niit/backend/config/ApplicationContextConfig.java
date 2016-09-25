@@ -21,13 +21,13 @@ import com.niit.backend.model.BlogComment;
 import com.niit.backend.model.Event;
 import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
-import com.niit.backend.model.ForumPostComment;
+import com.niit.backend.model.PostComment;
 import com.niit.backend.model.JobOpportunities;
 import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 @ComponentScan("com.niit.backend")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
@@ -62,7 +62,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(ForumPost.class);
-		sessionBuilder.addAnnotatedClass(ForumPostComment.class);
+		sessionBuilder.addAnnotatedClass(PostComment.class);
 		sessionBuilder.addAnnotatedClass(JobOpportunities.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		

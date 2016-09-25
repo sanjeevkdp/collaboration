@@ -1,5 +1,6 @@
 package com.niit.backend.controller;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +25,11 @@ public class BlogController {
 	@Autowired
 	BlogDao blogDao;
 	
-	@RequestMapping(value = "/blogs", method = RequestMethod.GET)
+	 Date date=new Date();
+     long time = date.getTime();
+     Timestamp timeStamp=new Timestamp(time);
+
+     @RequestMapping(value = "/blogs", method = RequestMethod.GET)
 	public ResponseEntity<List<Blog>> listAllBlog(){
 		List<Blog> blogs = blogDao.listAllBlog();
 		if(blogs.isEmpty()){
@@ -44,7 +49,9 @@ public class BlogController {
 	          return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 	      }
 	     blog.setBlog_id("BLG"+UUID.randomUUID().toString().substring(30).toUpperCase());
-	     blog.setCreatedAt(new Date());
+	    
+	     
+	     blog.setCreatedAt(timeStamp);
 	     blog.setStatus("pnding");
 	     blog.setUserDetails_id("USR011");
 	     blogDao.saveOrUpdate(blog);
@@ -69,13 +76,14 @@ public class BlogController {
 	          return new ResponseEntity<Blog>(HttpStatus.NOT_FOUND);
 	      }
 
-	      currentBlog.setCreatedAt(new Date());
+	      currentBlog.setCreatedAt(timeStamp);
 	      currentBlog.setStatus("Pending");
 	      currentBlog.setUserDetails_id(blog.getUserDetails_id());
 	      currentBlog.setDesscription(blog.getDesscription());
 	      currentBlog.setTitle(blog.getTitle());
 	      blogDao.saveOrUpdate(currentBlog);
 	      return new ResponseEntity<Blog>(currentBlog, HttpStatus.OK);
+
 	  } 
 	//------------------- Delete a Blog --------------------------------------------------------
 	  

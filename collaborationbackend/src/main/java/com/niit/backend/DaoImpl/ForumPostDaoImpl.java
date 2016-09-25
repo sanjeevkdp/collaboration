@@ -8,39 +8,41 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.ForumPostDao;
-import com.niit.backend.model.ForumPostComment;
-@Repository("ForumPostDao")
+import com.niit.backend.model.ForumPost;
+import com.niit.backend.model.PostComment;
+@Repository("forumPostDao")
 @Transactional
 public class ForumPostDaoImpl implements ForumPostDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
-	public void saveOrUpdate(ForumPostComment forumPostComment) {
+	public void saveOrUpdate(ForumPost forumPost) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().saveOrUpdate(forumPost);
+
+	}
+
+	@Override
+	public void editForum(ForumPost forumPost) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void editForum(ForumPostComment forumPostComment) {
+	public void deleteForum(ForumPost forumPost) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteForum(ForumPostComment forumPostComment) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public ForumPostComment get(String forumPostComment_id) {
+	public ForumPost get(String forumPost_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ForumPostComment> list() {
+	public List<ForumPost> list() {
 		// TODO Auto-generated method stub
 		return null;
 	}
