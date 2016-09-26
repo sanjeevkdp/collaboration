@@ -27,7 +27,7 @@ import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
 @Configuration
-//@EnableWebMvc
+@EnableWebMvc
 @ComponentScan("com.niit.backend")
 @EnableTransactionManagement
 public class ApplicationContextConfig {

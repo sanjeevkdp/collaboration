@@ -10,4 +10,6 @@
  event id must be String;
  solution :- by change the type define of id ,
  
+ bean name jobOpportunities not found 
+ solution:-by adding the repository with value jobOppotunities
  
