@@ -3,11 +3,14 @@ package com.niit.backend.DaoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.ForumPostDao;
+import com.niit.backend.model.Blog;
+import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
 import com.niit.backend.model.PostComment;
 @Repository("forumPostDao")
@@ -42,8 +45,32 @@ public class ForumPostDaoImpl implements ForumPostDao {
 	}
 
 	@Override
-	public List<ForumPost> list() {
+	public List<ForumPost> listAllForumPost() {
 		// TODO Auto-generated method stub
+		String hql="from ForumPost";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<ForumPost> listForumPost=query.getResultList();
+		return listForumPost;
+	}
+
+	@Override
+	public void deleteForumPostById(String forumPost_id) {
+		// TODO Auto-generated method stub
+		ForumPost forumPostDelete= new ForumPost();
+		forumPostDelete.setForumPost_id(forumPost_id);
+		sessionFactory.getCurrentSession().delete(forumPost_id);
+		
+	}
+
+	@Override
+	public ForumPost findById(String forumPost_id) {
+		// TODO Auto-generated method stub
+		String hql = "from ForumPost where forumPost_id=" + "'" + forumPost_id + "'";
+		Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		List<ForumPost> listBlog= (List<ForumPost>) query.getResultList();
+		if (listBlog!= null && !listBlog.isEmpty()) {
+			return listBlog.get(0);
+		}
 		return null;
 	}
 

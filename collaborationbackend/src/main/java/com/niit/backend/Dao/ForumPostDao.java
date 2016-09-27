@@ -14,5 +14,10 @@ public interface ForumPostDao {
 	
 	ForumPost get(String forumPost_id);
 		
-		List<ForumPost> list();
+		List<ForumPost> listAllForumPost();
+
+		void deleteForumPostById(String forumPost_id);
+
+		ForumPost findById(String forumPost_id);
+		
 }

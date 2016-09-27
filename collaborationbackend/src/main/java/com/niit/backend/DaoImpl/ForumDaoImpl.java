@@ -76,4 +76,11 @@ public class ForumDaoImpl implements ForumDao {
 		
 	}
 
+	@Override
+	public List<Forum> listSingleForum() {
+		// TODO Auto-generated method stub
+	
+		return null;
+	}
+
 }

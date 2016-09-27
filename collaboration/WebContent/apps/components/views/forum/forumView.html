@@ -1,0 +1,59 @@
+<div id="page-wrapper">
+
+	<div class="row">
+		<!-- Page Header -->
+		<div class="col-lg-12">
+			<h1 class="page-header">Forums</h1>
+		</div>
+		<!--End Page Header -->
+		<div class=" row"> 
+			<div class="col-lg-12">
+				<div  ng-controller="forumViewController">
+
+
+					<div class="panel panel-default ">
+						<div class="panel-heading">
+
+							<div class="inner-content" >	
+
+							<p><strong>Title:</strong>{{forumViewCtrl.forumView.title}}</p>
+							<p>Description:{{forumViewCtrl.forumView.description}}</p><br>
+							<p>{{forumViewCtrl.forumView.createdAt|date:'medium'}}</p>
+                             <form ng-submit="forumViewCtrl.submitPost()">
+                             <input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription">
+                             	<input type="submit" value="add">
+                             </form>
+
+							</div>
+                           
+							<div class="inner-content" ng-repeat="post in forumViewCtrl.forumPosts">
+						<a ng-click="forumViewCtrl.remove(post.forumPost_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>							
+						<p>{{post.forumDescription}}</p>
+							<a ng-href="">View more</a>
+							<p>{{post.createdAt|date:'medium'}}</p>
+						
+
+								
+							</div>
+
+                         
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+</div>
+</div>

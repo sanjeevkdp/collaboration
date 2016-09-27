@@ -54,6 +54,7 @@ public static void main(String args[]){
 	blogComment3.setDescription("verygood..........");
 	blogComment3.setUserDetails_id("USR011");
 	blogComment3.setBlog(blog);
+	System.out.print("Blog is-------------------------------------==="+blog);
 	blogCommentDao3.saveOrUpdate(blogComment3);
 	}
 }

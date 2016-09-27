@@ -43,4 +43,11 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"eventCtrl"
 		
 			})
+	.when('/forums/forumView/:forum_id',{
+
+		templateUrl:"apps/components/views/forum/forumView.html",
+		controller:"forumViewController",
+		controllerAs:"forumViewCtrl"
+		
+			})
 }]);

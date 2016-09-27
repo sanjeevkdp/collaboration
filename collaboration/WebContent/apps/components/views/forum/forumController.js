@@ -41,17 +41,17 @@ forum.controller('forumController', ['ForumService','$http',function(forumServic
 	self.edit=edit;
 	self.remove=remove;
 	self.reset=reset;*/
-fetchAllForum();
-function fetchAllForum(){
+(function fetchAllForum(){
 	forumService
 	.fetchAllForum()
 	.then(
 		function(data){
+			console.log(data);
 			self.forums=data;
 		},
 		function(errResponse){
 			console.log('Error while fetching data from forum');
 		});
-}
+})();
 
 }]);

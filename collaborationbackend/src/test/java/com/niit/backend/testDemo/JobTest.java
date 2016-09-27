@@ -22,6 +22,7 @@ public class JobTest {
 		jobOpportunities.setCreatedAt(timeStamp);
 		jobOpportunities.setDescription("this fist job posted to developer");
 		jobOpportunities.setTitle("Post to IT ");
+		System.out.print("jobOpporunities---------------------------------------------"+jobOpportunities);
 		jobOpportunitiesDao.saveOrUpdate(jobOpportunities);
 	}
 }

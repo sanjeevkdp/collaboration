@@ -9,6 +9,7 @@ public interface ForumDao {
 	void saveOrUpdate(Forum forum);
 	
 	List<Forum> listAllForums();
+	List<Forum> listSingleForum();
 	
 	public Forum findByName(String title);
 

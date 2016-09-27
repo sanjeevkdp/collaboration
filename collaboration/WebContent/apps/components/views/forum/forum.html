@@ -56,7 +56,13 @@
 
         <h3>{{forum.title}}</h3>
         <p>{{forum.description}}</p>
-        <a href="">view more</a>
+
+        <a ng-href="#forums/forumView/{{forum.forum_id}}">view more</a>
+
+
+
+
+
         <p>{{forum.createdAt|date:'medium'}}</p>
         <div ng-repeat="post in forum.forumPost">
           <h5>{{post.forumDescription}}</h5>
@@ -64,6 +70,7 @@
             <h5>{{comment.description}}</h5>
             <p>{{comment.createdAt|date:'medium'}}</p>
           </div>
+
 
           <p>{{post.createdAt|date:'medium'}}</p>
         </div>
