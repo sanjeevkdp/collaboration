@@ -16,7 +16,19 @@
         <div class="panel-heading">
          Latest Forums
          <hr>
-         {{forumCtrl.forums}}
+
+         <form ng-submit="forumCtrl.submit()">
+           <input type="hidden" ng-model="forumCtrl.forum.forum_id">
+           <input type="text" ng-model="forumCtrl.forum.title" id="title" class="form-control input-sm" placeholder="Enter tile" />
+           <input type="text" ng-model="forumCtrl.forum.description" id="description" class="form-control input-sm" placeholder="enter Description" />
+           <input type="submit" value="{{!forumCtrl.forum.forum_id ? 'Add forum' : 'Update'}}" class="btn btn-primary "/>
+           <button type="button" ng-click="forumCtrl.reset()" class="btn btn-warning" >Reset Form</button>
+         </form>
+
+
+
+
+
          <div class="inner-content" ng-repeat="forum in forumCtrl.forums">
 
 
@@ -52,28 +64,25 @@
             
           </div>  
         </div>   -->
-
-
+        
+        <a ng-click="forumCtrl.remove(forum.forum_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>
+        <a ng-click="forumCtrl.edit(forum.forum_id)" href=""><span class="fa fa-pencil-square-o  pull-right" >edit</span></a>
         <h3>{{forum.title}}</h3>
         <p>{{forum.description}}</p>
 
         <a ng-href="#forums/forumView/{{forum.forum_id}}">view more</a>
-
-
-
-
-
         <p>{{forum.createdAt|date:'medium'}}</p>
-        <div ng-repeat="post in forum.forumPost">
+        
+        <!-- <div ng-repeat="post in forum.forumPost">
           <h5>{{post.forumDescription}}</h5>
           <div ng-repeat="comment in post.postComment">
             <h5>{{comment.description}}</h5>
             <p>{{comment.createdAt|date:'medium'}}</p>
           </div>
-
-
+        
+        
           <p>{{post.createdAt|date:'medium'}}</p>
-        </div>
+        </div> -->
 
 
 

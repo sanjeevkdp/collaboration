@@ -40,6 +40,17 @@ public class BlogCommentController {
         }
         return new ResponseEntity<List<BlogComment>>(blogComments, HttpStatus.OK);
 	}
+	//-------------------------------------fetchall comments--------------------------------------
+
+	@RequestMapping(value = "/blogs/blogView/", method = RequestMethod.GET)
+	public ResponseEntity<List<BlogComment>> listAllBlogComme(){
+		List<BlogComment> blogComments = blogCommentDao.listAllComments();
+		if(blogComments.isEmpty()){
+            return new ResponseEntity<List<BlogComment>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<BlogComment>>(blogComments, HttpStatus.OK);
+	}
+	
 	//-------------------Create a BlogComments--------------------------------------------------------
     
 	  @RequestMapping(value = "/blogComments", method = RequestMethod.POST)

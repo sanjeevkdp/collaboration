@@ -50,4 +50,11 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"forumViewCtrl"
 		
 			})
+	.when('/blogs/blogView/:blog_id',{
+
+		templateUrl:"apps/components/views/blog/blogSingleView.html",
+		controller:"blogViewController",
+		controllerAs:"blogViewCtrl"
+		
+			})
 }]);

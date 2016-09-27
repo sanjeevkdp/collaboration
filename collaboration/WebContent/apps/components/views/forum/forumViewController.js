@@ -36,13 +36,13 @@ function fetchAllPost(){
 	});
 }
  function createPost(forumView,forumPost){
-	var forum_id=forumView.forum_id;
+ 	var forum_id=$routeParams.forum_id;
 		ForumViewService
 		.createPost(forumView,forumPost)
 		.then(
 			fetchSingleForum(forum_id),
 			function(errResponse){
-				console.error('Error while creating blog');
+				console.error('Error while creating forumPost');
 			}
 			);
 	}
@@ -50,9 +50,9 @@ function fetchAllPost(){
 		ForumViewService
 		.deletePost(forumPost_id)
 		.then(
-			fetchSingleForum(forum_id),
+			fetchAllPost(),
 			function(errResponse){
-				console.error('error while delete the blog_id',forumPost_id);
+				console.error('error while delete the forumPost_id',forumPost_id);
 			}
 			);
 
@@ -69,17 +69,17 @@ function fetchAllPost(){
 		reset();
 	}
 	function edit(forumPost_id){
-		console.log('id to be edited', blog_id);
-		for(var i = 0; i < self.blogs.length; i++){
-			if(self.blogs[i].blog_id === blog_id) {
-				self.blog= angular.copy(self.blogs[i]);
+		console.log('id to be edited', forumPost_id);
+		for(var i = 0; i < self.forumPosts.length; i++){
+			if(self.forumPosts[i].forumPost_id === forumPost_id) {
+				self.forumPost= angular.copy(self.forumPosts[i]);
 				break;
 			}
 		}
 	}
 	function remove(forumPost_id){
 		console.log('id to be deleted', forumPost_id);
-        if(self.forumPost.forumPost_id === forumPost_id) {//clean form if the blog to be deleted is shown there.
+        if(self.forumPost.forumPost_id === forumPost_id) {//clean form if the forumPost to be deleted is shown there.
         	reset();
         }
         deletePost(forumPost_id);

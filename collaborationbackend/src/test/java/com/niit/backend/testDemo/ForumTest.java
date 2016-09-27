@@ -47,6 +47,8 @@ public class ForumTest {
 		postComment.setDescription("hi this is yours post nice");
 		postComment.setForumPost(forumPost);
 		postCommentDao.saveOrUpdate(postComment);
+		// forumPostDao.deleteForumPostById("FRMPSTC82B26");
+			
 	}
 
 }

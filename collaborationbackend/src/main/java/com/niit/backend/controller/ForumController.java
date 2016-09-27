@@ -61,6 +61,7 @@ public class ForumController {
 	          System.out.println("A forum with title " + forum.getTitle() + " already exist");
 	          return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 	          }
+	      
 	          forum.setForum_id("FRM"+UUID.randomUUID().toString().substring(30).toUpperCase());
 	          forum.setCreatedAt(timeStamp);
 	          forum.setUserDetails_id("USR0025");
@@ -71,7 +72,45 @@ public class ForumController {
 	      return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	  }
      
+//------------------- Update a Forum--------------------------------------------------------
 	  
+	  @RequestMapping(value = "/forums/{forum_id}", method = RequestMethod.PUT)
+	  public ResponseEntity<Forum> updateForum(@PathVariable("forum_id") String forum_id, @RequestBody Forum forum) {
+	      System.out.println("Updating Forum " + forum_id);
+	        
+	      
+	      
+	      Forum currentForum=forumDao.findById(forum_id);
+	        
+	      if (currentForum==null) {
+	          System.out.println("forum with forum_id " + forum_id + " not found");
+	          return new ResponseEntity<Forum>(HttpStatus.NOT_FOUND);
+	      }
+	      currentForum.setCreatedAt(timeStamp);
+	      currentForum.setUserDetails_id(forum.getUserDetails_id());
+	      currentForum.setDescription(forum.getDescription());
+	      currentForum.setTitle(forum.getTitle());
+	      forumDao.saveOrUpdate(currentForum);
+	      return new ResponseEntity<Forum>(currentForum, HttpStatus.OK);
+
+	  } 
+	  
+//------------------- Delete a Forum --------------------------------------------------------
+	  
+	  @RequestMapping(value = "/forums/{forum_id}", method = RequestMethod.DELETE)
+	  public ResponseEntity<Forum> deleteUser(@PathVariable("forum_id") String forum_id) {
+	      System.out.println("Fetching & Deleting forum with forum_id " + forum_id);
+
+	      Forum forum = forumDao.findById(forum_id);
+	      if (forum == null) {
+	          System.out.println("Unable to delete. forum with forum_id " + forum_id + " not found");
+	          return new ResponseEntity<Forum>(HttpStatus.NOT_FOUND);
+	      }
+
+	     forumDao.deleteForumById(forum_id);
+	      return new ResponseEntity<Forum>(HttpStatus.NO_CONTENT);
+	  }
+		
 	  
 	  
 	  

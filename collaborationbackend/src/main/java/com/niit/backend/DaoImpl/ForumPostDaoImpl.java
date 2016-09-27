@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.ForumPostDao;
-import com.niit.backend.model.Blog;
-import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
-import com.niit.backend.model.PostComment;
 @Repository("forumPostDao")
 @Transactional
 public class ForumPostDaoImpl implements ForumPostDao {
@@ -56,9 +53,13 @@ public class ForumPostDaoImpl implements ForumPostDao {
 	@Override
 	public void deleteForumPostById(String forumPost_id) {
 		// TODO Auto-generated method stub
+		
+		String hql="Delete forumPost where forumPost_id="+"'"+forumPost_id+"'";
+	   /*
 		ForumPost forumPostDelete= new ForumPost();
 		forumPostDelete.setForumPost_id(forumPost_id);
-		sessionFactory.getCurrentSession().delete(forumPost_id);
+		*/
+		sessionFactory.getCurrentSession().delete(hql);
 		
 	}
 

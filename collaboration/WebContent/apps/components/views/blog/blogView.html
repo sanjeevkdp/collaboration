@@ -34,7 +34,9 @@
                     <h3 class="">{{blog.title}}</h3>
                     <a ng-click="blogCtrl.remove(blog.blog_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>
                     <a ng-click="blogCtrl.edit(blog.blog_id)" href=""><span class="fa fa-pencil-square-o  pull-right" >edit</span></a>
-                    <p>{{blog.createdAt|date}}</p>
+                    <p>{{blog.createdAt|date:'medium'}}</p>
+
+                     <a ng-href="#blogs/blogView/{{blog.blog_id}}">View more</a>
 
                     <!-- <button ng-if="!blog.toggle" ng-click="blog.toggle=true" class="pull-right">Show</button> -->
 
@@ -46,7 +48,7 @@
                             <div ng-controller="blogCommentController as commentCtrl">
                             <form ng-submit="commentCtrl.submitComment()">
                             <div class="input-group">
-                            <input type="hidden" ng-model="blogCtrl.blog.blog_id===commentCtrl.blogComment.blog" name="">
+                            <input type="hidden" ng-model="blogCtrl.blog.blog_id" name="">
                                 <input type="text" class="form-control" ng-model="commentCtrl.blogComment.description" placeholder="Comment...">
                                 <span class="input-group-btn">
                                     <input class="btn btn-primary" type="submit" value="Comment" ng-model="blogCtrl.blog.blog_id"  />

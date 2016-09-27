@@ -8,6 +8,7 @@ var app = angular.module('collaborationApp', [
 	'collaborationAppEvent',
 	'collaborationAppBlogComment',
 	'collaborationAppForumView',
+	'collaborationBlogSingleView',
 	'ngRoute']
 
 	);

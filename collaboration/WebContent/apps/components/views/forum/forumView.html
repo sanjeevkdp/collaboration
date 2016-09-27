@@ -13,30 +13,34 @@
 
 					<div class="panel panel-default ">
 						<div class="panel-heading">
-
+                                       <a ng-href="#forum">Back</a>
 							<div class="inner-content" >	
-
-							<p><strong>Title:</strong>{{forumViewCtrl.forumView.title}}</p>
-							<p>Description:{{forumViewCtrl.forumView.description}}</p><br>
-							<p>{{forumViewCtrl.forumView.createdAt|date:'medium'}}</p>
-                             <form ng-submit="forumViewCtrl.submitPost()">
-                             <input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription">
-                             	<input type="submit" value="add">
-                             </form>
+                             
+								<h3><strong>Title:</strong>{{forumViewCtrl.forumView.title}}</h3>
+								<p>{{forumViewCtrl.forumView.createdAt|date:'medium'}}</p>
+								<br>
+								<p>Description:{{forumViewCtrl.forumView.description}}</p><br>
+								
+								<form ng-submit="forumViewCtrl.submitPost()">
+								<input type="hidden" ng-model="forumViewCtrl.forumPost.forumPost_id">
+									<input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription" class="form-control input-sm" placeholder="Enter tile"/>
+									<input type="submit" value="{{!forumViewCtrl.forumPost.forumPost_id ? 'Add forum' : 'Update'}}" class="btn btn-primary "/>
+								</form>
 
 							</div>
-                           
-							<div class="inner-content" ng-repeat="post in forumViewCtrl.forumPosts">
-						<a ng-click="forumViewCtrl.remove(post.forumPost_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>							
-						<p>{{post.forumDescription}}</p>
-							<a ng-href="">View more</a>
-							<p>{{post.createdAt|date:'medium'}}</p>
-						
+
+							<div class="inner-content" ng-repeat="post in forumViewCtrl.forumView.forumPost">
+								<a ng-click="forumViewCtrl.remove(post.forumPost_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>
+								 <a ng-click="forumViewCtrl.edit(post.forumPost_id)" href=""><span class="fa fa-pencil-square-o  pull-right" >edit</span></a>							
+								<p>{{post.forumDescription}}</p>
+								<a ng-href="">View more</a>
+								<p>{{post.createdAt|date:'medium'}}</p>
+
 
 								
 							</div>
 
-                         
+
 
 
 
