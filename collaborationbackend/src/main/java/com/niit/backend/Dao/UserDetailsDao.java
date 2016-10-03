@@ -14,4 +14,8 @@ void saveOrUpdate(UserDetails userDetails);
 	
 	UserDetails getUserDetailsByUserName(String userName);
 
+	List<UserDetails> listAllUserDetails();
+
+	boolean isUserDetailsExist(UserDetails userDetails);
+
 }

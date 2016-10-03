@@ -5,3 +5,6 @@ home.controller('homeController', function(){
 home.controller('loginController', function(){
 		
 });
+home.controller('landingController', function(){
+		
+});

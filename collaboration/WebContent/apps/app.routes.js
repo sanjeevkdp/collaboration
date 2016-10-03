@@ -6,9 +6,9 @@ app.config(['$routeProvider',function($routeProvider) {
 	$routeProvider
 	.when('/',{
 
-		templateUrl:"apps/components/views/homeView.html",
-		controller:"homeController",
-		controllerAs:"homeCtrl"
+		templateUrl:"apps/components/views/login/login.html",
+		controller:"userController",
+		controllerAs:"userCtrl"
 		
 			})
 	.when('/home/',{
@@ -18,7 +18,7 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"homeCtrl"
 		
 			})
-	.when('/login/',{
+	.when('/slogin/',{
 
 		templateUrl:"apps/components/views/login.html",
 		controller:"loginController",
@@ -55,6 +55,13 @@ app.config(['$routeProvider',function($routeProvider) {
 		templateUrl:"apps/components/views/blog/blogSingleView.html",
 		controller:"blogViewController",
 		controllerAs:"blogViewCtrl"
+		
+			})
+	.when('/landing/',{
+
+		templateUrl:"home.html",
+		controller:"landingController",
+		controllerAs:"landingCtrl"
 		
 			})
 }]);

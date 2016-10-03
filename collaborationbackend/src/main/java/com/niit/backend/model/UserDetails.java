@@ -16,10 +16,17 @@ public class UserDetails {
 	private String email;
 	private String gender;
 	private String phoneNo;
-	private String userDetails_Name;
-	private boolean enabled;
+	private String Enabled;
+	private String dateOfBirth;
 	private String status;
 	private String is_notify;
+	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 	public String getUserDetails_id() {
 		return userDetails_id;
 	}
@@ -56,17 +63,12 @@ public class UserDetails {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public String getUserDetails_Name() {
-		return userDetails_Name;
+	
+	public String getEnabled() {
+		return Enabled;
 	}
-	public void setUserDetails_Name(String userDetails_Name) {
-		this.userDetails_Name = userDetails_Name;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setEnabled(String enabled) {
+		Enabled = enabled;
 	}
 	public String getStatus() {
 		return status;

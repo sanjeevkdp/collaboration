@@ -236,13 +236,17 @@ limitations under the License.*/
 /* Login Page */
 
  .login-panel {
-    margin-top: 15%;
+    margin-top: 50%;
+    margin-bottom: 20%;
 }
 .body-Backcolor {
     background-color:#000;
 }
 .logo-margin {
     margin-top:100px;
+}
+.demo-panel {
+    margin-top: 1%;
 }
 
 /* Flot Chart Containers */

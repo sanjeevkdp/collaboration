@@ -1,9 +1,12 @@
+
+<menus-bar></menus-bar>
+  <sidemenu-bar></sidemenu-bar>
  <div id="page-wrapper">
 
   <div class="row">
     <!-- Page Header -->
     <div class="col-lg-12">
-      <h1 class="page-header">Forums</h1>
+      <h1 class="page-header" style="color:rgb(3,73,49);font-style:bold"><span class="fa fa-rss"> </span>Forums</h1>
     </div>
     <!--End Page Header -->
   </div>
@@ -14,17 +17,32 @@
 
        <div class="panel panel-default ">
         <div class="panel-heading">
-         Latest Forums
-         <hr>
+        Forums
+          <div class="demo-panel panel panel-default">                  
+                <div class="panel-heading">
+                    <h3 class="panel-title"><input type="button" class="btn btn-default form-control" style="background:rgb(102,204,204)" value="{{!forumCtrl.forum.forum_id ? 'Add forum' : 'Update Forum'}}"  name=""></h3>
+                </div>
+                <div class="panel-body">
+        
+                      
 
-         <form ng-submit="forumCtrl.submit()">
+         <form ng-submit="forumCtrl.submit()" role="form">
+         <fieldset>
            <input type="hidden" ng-model="forumCtrl.forum.forum_id">
+           <div class="form-group">
            <input type="text" ng-model="forumCtrl.forum.title" id="title" class="form-control input-sm" placeholder="Enter tile" />
+           </div>
+           <div class="form-group">
            <input type="text" ng-model="forumCtrl.forum.description" id="description" class="form-control input-sm" placeholder="enter Description" />
+           </div>
+           <div class="form-group">
            <input type="submit" value="{{!forumCtrl.forum.forum_id ? 'Add forum' : 'Update'}}" class="btn btn-primary "/>
            <button type="button" ng-click="forumCtrl.reset()" class="btn btn-warning" >Reset Form</button>
+           </div>
+        </fieldset>
          </form>
-
+</div>
+</div>
 
 
 
@@ -107,3 +125,4 @@
 
 </div>
         <!-- end wrapper -->
+         <my-footer></my-footer>
