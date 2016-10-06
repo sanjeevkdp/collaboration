@@ -26,9 +26,16 @@ user.controller('userController',[ '$scope','UserService','$http',function($scop
 		UserService
 		.createUser(userDetails)
 		.then(
-			fetchAllUser,
+			fetchAllUser
+			,
 			function(errResponse){
 				console.error('Error while creating userDetails');
+				if(errResponse.status==409){
+					alert("already exit with email name",self.userDetails);
+				}
+				else{
+					alert("Please try another time.....");
+				}
 			}
 			);
 	}

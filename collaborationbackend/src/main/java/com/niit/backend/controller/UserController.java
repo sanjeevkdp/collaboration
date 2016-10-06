@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.niit.backend.Dao.AuthoritiesDao;
+import com.niit.backend.Dao.UserDao;
 import com.niit.backend.Dao.UserDetailsDao;
 import com.niit.backend.mailMail.MailMail;
+import com.niit.backend.model.Authorities;
+import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
 @RestController
@@ -24,6 +28,16 @@ public class UserController {
 	UserDetails userDetails;
 	@Autowired
 	UserDetailsDao userDetailsDao;
+	@Autowired
+	Authorities authorities;
+	@Autowired
+	AuthoritiesDao authoritiesDao;
+	@Autowired
+	User user;
+	@Autowired
+	UserDao userDao;
+	
+	
 	private MailMail mailMail = new MailMail();
 
 	// ---------------------fetchAllUserDetailss----------------------------------------------
@@ -41,24 +55,37 @@ public class UserController {
 	// -------------------Create a UserDetails--------------------------------------------------------
 
 	@RequestMapping(value = "/userDetails", method = RequestMethod.POST)
-	public ResponseEntity<Void> createUser(@RequestBody UserDetails userDetails, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<String> createUser(@RequestBody UserDetails userDetails, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating UserDetails " + userDetails.getUserName());
 
 		if (userDetailsDao.isUserDetailsExist(userDetails)) {
-			System.out.println("A UserDetails with name " + userDetails.getUserName() + " already exist");
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			System.out.println("A UserDetails with email " + userDetails.getEmail() + " already exist");
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
 		}
 		userDetails.setUserDetails_id("USR" + UUID.randomUUID().toString().substring(30).toUpperCase());
 		userDetails.setIs_notify("pending");
 		userDetails.setEnabled("student");
 		userDetailsDao.saveOrUpdate(userDetails);
+		User user=new User();
+		user.setUserName(userDetails.getUserName());
+		user.setPassword(userDetails.getPassword());
+		user.setEnabled(true);
+		user.setUserDetails_id(userDetails.getUserDetails_id());
+		userDao.saveOrUpdate(user);
+		Authorities authorities=new Authorities();
+		authorities.setAuthority(userDetails.getStatus());
+		authorities.setUserName(userDetails.getUserName());
+		authorities.setUser_id(user.getUser_id());
+		authoritiesDao.saveOrUpdate(authorities);
+		
+		
 		String message = "Hello "+userDetails.getUserName()+" you're successfully registered with us, Thanks !";
 		
 		mailMail.sendEmail(userDetails.getEmail(),"Registration Successfull",message);	
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/userDetails/{userDetails_id}")
 				.buildAndExpand(userDetails.getUserDetails_id()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 
 }

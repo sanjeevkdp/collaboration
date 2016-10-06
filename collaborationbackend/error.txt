@@ -13,3 +13,5 @@
  bean name jobOpportunities not found 
  solution:-by adding the repository with value jobOppotunities
  
+ 
+ 400 (Bad Request)

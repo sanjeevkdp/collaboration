@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.niit.backend.model.Authorities;
@@ -21,8 +22,8 @@ import com.niit.backend.model.BlogComment;
 import com.niit.backend.model.Event;
 import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
-import com.niit.backend.model.PostComment;
 import com.niit.backend.model.JobOpportunities;
+import com.niit.backend.model.PostComment;
 import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
@@ -77,6 +78,13 @@ public class ApplicationContextConfig {
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory){
 		HibernateTransactionManager transactionManager =new HibernateTransactionManager(sessionFactory);		
 		return transactionManager;
+	}
+	@Bean
+	public MultipartResolver multipartResolver() {
+	    org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.
+	    		multipart.commons.CommonsMultipartResolver();
+	    multipartResolver.setMaxUploadSize(30000000);
+	    return multipartResolver;
 	}
 
 }

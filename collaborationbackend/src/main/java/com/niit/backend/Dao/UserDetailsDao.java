@@ -12,7 +12,7 @@ void saveOrUpdate(UserDetails userDetails);
 	
 	List<UserDetails> list();
 	
-	UserDetails getUserDetailsByUserName(String userName);
+	UserDetails getUserDetailsByUserName(String email);
 
 	List<UserDetails> listAllUserDetails();
 

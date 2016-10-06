@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.AuthoritiesDao;
 import com.niit.backend.model.Authorities;
-@Repository("AuthoritiesDao")
+@Repository("authoritiesDao")
 public class AuthoritiesDaoImpl implements AuthoritiesDao {
 
 	@Autowired

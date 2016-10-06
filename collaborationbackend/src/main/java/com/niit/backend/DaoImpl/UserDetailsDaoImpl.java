@@ -47,9 +47,9 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 	}
 
 	@Override
-	public UserDetails getUserDetailsByUserName(String userName) {
+	public UserDetails getUserDetailsByUserName(String email) {
 		// TODO Auto-generated method stub
-		String hql = "from UserDetails where userName=" + "'" + userName + "'";
+		String hql = "from UserDetails where email=" + "'" + email + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<UserDetails> listOfUserDetails = query.getResultList();
 		if (listOfUserDetails != null && !listOfUserDetails.isEmpty()){
@@ -69,7 +69,7 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 	@Override
 	public boolean isUserDetailsExist(UserDetails userDetails) {
 		// TODO Auto-generated method stub
-		return false;
+		return getUserDetailsByUserName(userDetails.getEmail())!=null;
 	}
 
 }

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.UserDao;
 import com.niit.backend.model.User;
-@Repository("UserDao")
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
 
 	@Autowired

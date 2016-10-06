@@ -30,6 +30,8 @@
                 <div class="form-group">
                 <input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Enter Content"/></div>
                  <div class="form-group">
+                <input type="file" file-model="eventCtrl.myFile"/></div>
+                 <div class="form-group">
                 <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-primary " ng-disabled="myForm.$invalid">
                 <button type="button" ng-click="eventCtrl.reset()" class="btn btn-warning" >Reset Form</button> 
                 </div> 
