@@ -10,6 +10,8 @@ var app = angular.module('collaborationApp', [
 	'collaborationAppForumView',
 	'collaborationBlogSingleView',
 	'collaborationAppUser',
-	'ngRoute']
+	'collaborationAppLogin',
+	'collaborationAppProfile',
+	'ngRoute','ngCookies']
 
 	);

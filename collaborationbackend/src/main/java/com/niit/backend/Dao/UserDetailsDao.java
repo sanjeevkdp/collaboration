@@ -18,4 +18,6 @@ void saveOrUpdate(UserDetails userDetails);
 
 	boolean isUserDetailsExist(UserDetails userDetails);
 
+	UserDetails checkUser(String username, String password);
+
 }

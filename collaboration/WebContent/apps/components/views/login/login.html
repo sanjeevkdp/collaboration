@@ -1,32 +1,33 @@
 <div class="Login-back">
   <div class="container">
     <br>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-center ">
+    <div class="row"  >
+      <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
         <img src="assets/img/logo.png" alt=""/>
       </div>
     </div>
     <br>
     <div class="row">    
-      <div class="col-md-4">
+      <div class="col-md-4 col-md-offset-4" style="margin-bottom: 215px">
         <div class="demo-panel panel panel-default">                  
           <div class="panel-heading">
             <h3 class="panel-title">Please Sign In  </h3>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form ng-submit="vm.login()" role="form">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                  <input class="form-control"  ng-model="vm.username" placeholder="E-mail" name="username" type="username" autofocus>
                 </div>
 
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <input class="form-control" ng-model="vm.password" placeholder="Password" name="password" type="password" value="">
                 </div>
-
-
+                
+                <p>Please! <a href="#signUp"> Register</a></p>
                 <!-- Change this to a button or input when using this as a form -->
-                <a href="#home" class="btn btn-lg btn-primary btn-block">Login</a>
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login"/>
+                <!-- <a href="#home" type="submit" class="btn btn-lg btn-primary btn-block">Login</a> -->
               </fieldset>
             </form>
           </div>
@@ -34,55 +35,55 @@
       </div>
 
 
-      <div class="col-md-4 col-md-offset-4">
-        <div class="demo-panel panel panel-default">                  
-          <div class="panel-heading">
-            <h3 class="panel-title">Please Sign Up</h3>
-          </div>
-          <div class="panel-body">
-            <form role="form" ng-submit="userCtrl.submit()">
-              <fieldset>
-                <div class="form-group">
-
-                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_ALUMNI">     Alumni                 
-                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_EMPLOYEE">     Employee                
-                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_STUDENT">   Students
-
-               </div>
-               <br>
-               <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.userName" placeholder="Name" name="name" type="name" autofocus>
-              </div>
-              <div class="form-group">
-                <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="male" >Male
-                <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="female">Female
-              </div>
-              <br>
-              <div class="form-group">
-                <label for="birthday">Birthday</label>
-                <input class="form-control" ng-model="userCtrl.userDetails.dateOfBirth" type="date" name="bday">
-              </div>
-              <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.email" placeholder="E-mail" name="email" type="email">
-              </div>
-              <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.phoneNo" placeholder="please enter Phone number" name="number" type="PhoneNumber" >
-              </div>
-              <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.password" placeholder="Password" name="password" type="password" value="">
-              </div>
-              <div class="form-group">
-                <input class="form-control" placeholder="Confirm Password" name="password" type="password" value="">
-              </div>
-
-              <!-- Change this to a button or input when using this as a form -->
-              <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block"/>
-              <button type="button" ng-click="userCtrl.reset()" class="btn btn-lg btn-success btn-block">Canel</button>
-            </fieldset>
-          </form>
-        </div>
-      </div>
+<!--       <div class="col-md-4 col-md-offset-4">
+  <div class="demo-panel panel panel-default">                  
+    <div class="panel-heading">
+      <h3 class="panel-title">Please Sign Up</h3>
     </div>
+    <div class="panel-body" ng-controller="userController as userCtrl">
+      <form role="form" ng-submit="userCtrl.submit()">
+        <fieldset>
+          <div class="form-group">
+
+           <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_ALUMNI">     Alumni                 
+           <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_EMPLOYEE">     Employee                
+           <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_STUDENT">   Students
+
+         </div>
+         <br>
+         <div class="form-group">
+          <input class="form-control" ng-model="userCtrl.userDetails.userName" placeholder="Name" name="name" type="name" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="male" >Male
+          <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="female">Female
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="birthday">Birthday</label>
+          <input class="form-control" ng-model="userCtrl.userDetails.dateOfBirth" type="date" name="bday">
+        </div>
+        <div class="form-group">
+          <input class="form-control" ng-model="userCtrl.userDetails.email" placeholder="E-mail" name="email" type="email">
+        </div>
+        <div class="form-group">
+          <input class="form-control" ng-model="userCtrl.userDetails.phoneNo" placeholder="please enter Phone number" name="number" type="PhoneNumber" >
+        </div>
+        <div class="form-group">
+          <input class="form-control" ng-model="userCtrl.userDetails.password" placeholder="Password" name="password" type="password" value="">
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="Confirm Password" name="password" type="password" value="">
+        </div>
+
+        Change this to a button or input when using this as a form
+        <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block"/>
+        <button type="button" ng-click="userCtrl.reset()" class="btn btn-lg btn-success btn-block">Canel</button>
+      </fieldset>
+    </form>
   </div>
+</div>
+</div> -->
+</div>
 </div>
 </div>

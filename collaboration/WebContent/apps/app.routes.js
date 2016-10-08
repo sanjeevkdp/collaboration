@@ -4,11 +4,25 @@
 
 app.config(['$routeProvider',function($routeProvider) {
 	$routeProvider
-	.when('/',{
+	.when('/login',{
 
 		templateUrl:"apps/components/views/login/login.html",
+		controller:"LoginController",
+		controllerAs:"vm"
+		
+			})
+	.when('/signUp',{
+
+		templateUrl:"apps/components/views/login/signUp.html",
 		controller:"userController",
 		controllerAs:"userCtrl"
+		
+			})
+	.when('/',{
+
+		templateUrl:"apps/components/views/homeView.html",
+		controller:"homeController",
+		controllerAs:"homeCtrl"
 		
 			})
 	.when('/home/',{
@@ -64,4 +78,26 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"landingCtrl"
 		
 			})
+	.when('/profile/',{
+
+		templateUrl:"apps/components/views/profile/profile.html",
+		controller:"profileController",
+		controllerAs:"profileCtrl"
+		
+			})
+}]);
+app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http){
+	$rootScope.globals = $cookieStore.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        }
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in and trying to access a restricted page
+            var restrictedPage = $.inArray($location.path(), ['/login','/signUp']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $location.path('/login');
+            }
+        });
 }]);

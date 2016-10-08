@@ -71,5 +71,17 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 		// TODO Auto-generated method stub
 		return getUserDetailsByUserName(userDetails.getEmail())!=null;
 	}
+	@Override
+	public UserDetails checkUser(String username, String password) {
+		// TODO Auto-generated method stub
+		String hql = "from UserDetails where email=" + "'" + username + "'and password=" + "'" + password + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<UserDetails> listOfUserDetails = query.getResultList();
+		if (listOfUserDetails != null && !listOfUserDetails.isEmpty()){
+			return  listOfUserDetails.get(0);
+		}
+			
+		return null;
+	}
 
 }
