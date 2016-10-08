@@ -15,4 +15,14 @@ public interface JobOpportunitiesDao {
 	JobOpportunities get(String jobOpportunities_id);
 		
 		List<JobOpportunities> list();
+
+		List<JobOpportunities> listAllJobOpportunitiess();
+
+		boolean isJobOpportunitiesExist(JobOpportunities jobOpportunities);
+		
+		public JobOpportunities findByName(String title);
+
+		JobOpportunities findById(String jobOportunities_id);
+
+		void deleteJobOpportunitiesById(String jobOportunities_id);
 }

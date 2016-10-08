@@ -1,0 +1,89 @@
+
+<menus-bar></menus-bar>
+<sidemenu-bar></sidemenu-bar>
+
+
+
+<div id="page-wrapper">
+
+  <div class="row">
+    <!-- Page Header -->
+    <div class="col-lg-12">
+    <h1 class="page-header">Job Apportunities</h1>
+    </div>
+    <!--End Page Header -->
+  </div>
+
+  <div class=" row"> 
+    <div class="col-lg-12">
+      <div  ng-controller="jobController">
+
+
+       <div class="panel panel-default ">
+        <div class="panel-heading">
+         jobs
+          <div class="demo-panel panel panel-default">                  
+            <div class="panel-heading">
+              <h3 class="panel-title"><input type="button" class="btn btn-default form-control" style="background:rgb(102,204,204)" value="{{!jobCtrl.jobOportunities.jobOportunities_id ? 'Add jobOportunities' : 'Update jobOportunities'}}"  name=""></h3>
+            </div>
+            <div class="panel-body">
+
+
+
+             <form ng-submit="jobCtrl.submit()" role="form">
+               <fieldset>
+                 <input type="hidden" ng-model="jobCtrl.jobOportunities.jobOportunities_id">
+                 <div class="form-group">
+                   <input type="text" ng-model="jobCtrl.jobOportunities.title" id="title" class="form-control input-sm" placeholder="Enter job tile" />
+                 </div>
+                 <div class="form-group">
+                   <textarea ng-model="jobCtrl.jobOportunities.description" id="description" class="form-control input-sm" placeholder="Enter Job Description" ></textarea>
+                 </div>
+                 <div class="form-group">
+                   <input type="submit" value="{{!jobCtrl.jobOportunities.jobOportunities_id ? 'Add jobOportunities' : 'Update'}}" class="btn btn-primary "/>
+                   <button type="button" ng-click="jobCtrl.reset()" class="btn btn-warning" >Reset Form</button>
+                 </div>
+               </fieldset>
+             </form>
+           </div>
+         </div>
+
+
+
+
+
+         <div class="inner-content" ng-repeat="jobOportunities in jobCtrl.jobOportunitiess">
+
+          <a ng-click="jobCtrl.remove(jobOportunities.jobOportunities_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red">delete</span></a>
+          <a ng-click="jobCtrl.edit(jobOportunities.jobOportunities_id)" href=""><span class="fa fa-pencil-square-o  pull-right" >edit</span></a>
+          <h3>{{jobOportunities.title}}</h3>
+          <p>{{jobOportunities.description}}</p>
+
+          <p>{{jobOportunities.createdAt|date:'medium'}}</p>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>        
+</div>
+
+</div>
+
+
+
+
+
+
+</div>
+<!-- end page-wrapper -->
+
+
+
+
+
+</div>
+<!-- end wrapper -->
+<my-footer></my-footer>

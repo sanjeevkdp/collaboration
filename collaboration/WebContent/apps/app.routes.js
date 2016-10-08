@@ -85,6 +85,13 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"profileCtrl"
 		
 			})
+	.when('/job/',{
+
+		templateUrl:"apps/components/views/job/job.html",
+		controller:"jobController",
+		controllerAs:"jobCtrl"
+		
+			})
 }]);
 app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http){
 	$rootScope.globals = $cookieStore.get('globals') || {};
