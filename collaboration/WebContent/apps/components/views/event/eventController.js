@@ -1,5 +1,5 @@
 var event=angular.module('collaborationAppEvent',['controllerEventservice','ngRoute']);
-event.controller('eventController',[ '$scope','EventService','$http',function($scope,EventService,$http){
+event.controller('eventController',[ '$scope','$rootScope','EventService','$http',function($scope,$rootScope,EventService,$http){
 	var self=this;
 	self.event={event_id:'',eventName:'',description:''}
 	self.events=[];
@@ -8,6 +8,7 @@ event.controller('eventController',[ '$scope','EventService','$http',function($s
 	self.edit=edit;
 	self.remove=remove;
 	self.reset=reset;
+	/*self.file='./assets/img/'+$scope.client.event_id+'.png';*/
 
 
 	fetchAllEvent();
@@ -84,7 +85,7 @@ event.controller('eventController',[ '$scope','EventService','$http',function($s
 
 		}*/
 		if(self.event.event_id===''){
-						var file = self.myFile;
+			var file = self.myFile;
 			/* console.log('file is ' );
 			console.dir(file);*/
 			var uploadUrl = "http://localhost:8080/collaborationbackend/user/saveUserDataAndFile/";
@@ -102,32 +103,32 @@ event.controller('eventController',[ '$scope','EventService','$http',function($s
 			}).error(function() {
 				console.log('error');
 			});		
-}
-else{
-	console.log('Event updated with event_id ', self.event.event_id);
-	updateEvent(self.event, self.event.event_id);
-}
+		}
+		else{
+			console.log('Event updated with event_id ', self.event.event_id);
+			updateEvent(self.event, self.event.event_id);
+		}
 
-reset();
-}
-function edit(event_id){
-	console.log('id to be edited', event_id);
-	for(var i = 0; i < self.events.length; i++){
-		if(self.events[i].event_id === event_id) {
-			self.event= angular.copy(self.events[i]);
-			break;
+		reset();
+	}
+	function edit(event_id){
+		console.log('id to be edited', event_id);
+		for(var i = 0; i < self.events.length; i++){
+			if(self.events[i].event_id === event_id) {
+				self.event= angular.copy(self.events[i]);
+				break;
+			}
 		}
 	}
-}
-function remove(event_id){
-	console.log('id to be deleted', event_id);
+	function remove(event_id){
+		console.log('id to be deleted', event_id);
         if(self.event.event_id === event_id) {//clean form if the event to be deleted is shown there.
         	reset();
         }
         deleteEvent(event_id);
     }
     function reset(){
-    	self.event={event_id:'',description:'',eventName:''};
+    	self.event={event_id:'',description:'',eventName:'',myFile:''};
        /* $scope.myForm.$setPristine();*/ //reset Form
    }
 

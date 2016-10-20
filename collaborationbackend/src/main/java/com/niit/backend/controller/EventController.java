@@ -111,12 +111,13 @@ public class EventController {
 	@ResponseBody
 	public Object saveUserDataAndFile(@RequestParam(value = "event") String userInfo,
 	        @RequestParam(value = "file") MultipartFile file,HttpServletRequest request) {
-		
+		String eventid=null;
 		System.out.println("Inside File upload" + userInfo);
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			Event event= mapper.readValue(userInfo, Event.class);
 			 event.setEvent_id("EVT" + UUID.randomUUID().toString().substring(30).toUpperCase());
+			 eventid=event.getEvent_id();
 				event.setCreatedAt(new Date());
 				eventDao.saveOrUpdate(event);
 			System.out.println(event.toString());
@@ -132,10 +133,10 @@ public class EventController {
 		}
 		
 		//String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		String rootDirectory = "F:\\testUpload\\";
+		String rootDirectory = "C:\\Users\\sanjeev\\workspace\\CollaborationProject\\collaboration\\WebContent\\assets\\img\\";
 		System.out.println("Root Directory "+rootDirectory);
 		try {                                      
-			file.transferTo(new File(rootDirectory  + file.getOriginalFilename()));
+			file.transferTo(new File(rootDirectory  +eventid+".png"));
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -187,6 +188,7 @@ public class EventController {
 
 		eventDao.deleteUserById(event_id);
 		return new ResponseEntity<Event>(HttpStatus.NO_CONTENT);
+		
 	}
 
 }

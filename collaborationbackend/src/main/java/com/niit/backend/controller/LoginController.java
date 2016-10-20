@@ -23,9 +23,10 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserToSend> isValidUser(@RequestBody ValidUserModel validUser) {
 		System.out.println(validUser.getUsername() + "   " + validUser.getPassword());
-		/*if (userDetailsDao.checkUser(validUser.getUsername(), validUser.getPassword()) == null) {
+		if (userDetailsDao.checkUser(validUser.getUsername(), validUser.getPassword()) == null) {
 			return new ResponseEntity<UserToSend>(HttpStatus.NOT_FOUND);
-		}*/
+		}
+		else{
 		userDetails = userDetailsDao.checkUser(validUser.getUsername(), validUser.getPassword());
 		System.out.println(userDetails);
 		UserToSend userToSend = new UserToSend();
@@ -34,5 +35,6 @@ public class LoginController {
 		userToSend.setStatus(userDetails.getStatus());
 		userToSend.setPassword(userDetails.getPassword());
 		return new ResponseEntity<UserToSend>(userToSend, HttpStatus.OK);
+		}
 	}
 }

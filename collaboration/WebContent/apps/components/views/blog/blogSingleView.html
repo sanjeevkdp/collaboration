@@ -26,8 +26,8 @@
                                 
                                 <form ng-submit="blogViewCtrl.submitComment()">
                                 <input type="hidden" ng-model="blogViewCtrl.blog_comments.blogComment_id">
-                                    <input type="text" id="description" ng-model="blogViewCtrl.blog_comments.description" class="form-control input-sm" placeholder="Enter tile"/>
-                                    <input type="submit" value="{{!blogViewCtrl.blog_comments.blogComment_id ? 'Add Comment' : 'Update'}}" class="btn btn-primary "/>
+                                    <input type="text" id="description" ng-model="blogViewCtrl.blog_comments.description" class="form-control input-sm" placeholder="Enter tile" required="" />
+                                    <input type="submit" value="{{!blogViewCtrl.blog_comments.blogComment_id ? 'Add Comment' : 'Update'}}" class="btn btn-primary " ng-disabled="myForm.$invalid"/>
                                 </form>
 
                             </div>

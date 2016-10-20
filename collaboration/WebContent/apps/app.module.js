@@ -13,6 +13,7 @@ var app = angular.module('collaborationApp', [
 	'collaborationAppLogin',
 	'collaborationAppProfile',
 	'collaborationAppJob',
+	'collaborationAppChat',
 	'ngRoute','ngCookies']
 
 	);

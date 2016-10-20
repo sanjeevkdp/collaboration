@@ -92,6 +92,13 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"jobCtrl"
 		
 			})
+	.when('/chat/',{
+
+		templateUrl:"apps/components/views/chating/chating.html",
+		controller:"chatController",
+		controllerAs:"chatCtrl"
+		
+			})
 }]);
 app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http){
 	$rootScope.globals = $cookieStore.get('globals') || {};

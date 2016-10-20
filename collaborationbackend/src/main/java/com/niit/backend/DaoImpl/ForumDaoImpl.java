@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.ForumDao;
-import com.niit.backend.model.Event;
 import com.niit.backend.model.Forum;
 @Repository("forumDao")
 @Transactional

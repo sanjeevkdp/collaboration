@@ -37,6 +37,12 @@ loginService.factory('AuthenticationService', ['$http', '$cookieStore', '$rootSc
                      callback(response);
                 },function(errResponse){
                     console.error(errResponse);
+                    if(errResponse.status==404){
+                        alert('INVALID CREDENTIALS......Please try again');
+                    }
+                    else{
+                    alert('please login another time');
+                }
                 });
             
 

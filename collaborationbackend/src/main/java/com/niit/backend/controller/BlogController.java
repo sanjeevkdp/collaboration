@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.niit.backend.Dao.BlogDao;
 import com.niit.backend.model.Blog;
-import com.niit.backend.model.Event;
 
 @RestController
 public class BlogController {

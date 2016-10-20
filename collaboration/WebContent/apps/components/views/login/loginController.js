@@ -11,17 +11,19 @@ Login.controller('LoginController',[ '$location', 'AuthenticationService', 'Flas
         })();
 
       vm.login=  function(){
-            debugger;
+         
             vm.dataLoading = true;
             AuthenticationService.Login(vm.username, vm.password, function(response) {
                 if (response.status==200) {
-                     debugger;
+                   
                     console.log("gfasdhjkl;slds;srdagldksf");
                     AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/');
                 } else {
+                    
                     FlashService.Error(response.message);
                     vm.dataLoading = false;
+                   
                 }
             });
         };

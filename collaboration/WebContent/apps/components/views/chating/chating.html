@@ -1,0 +1,39 @@
+<menus-bar></menus-bar>
+<sidemenu-bar></sidemenu-bar>
+
+
+
+<div id="page-wrapper">
+
+  <div class="row">
+    <!-- Page Header -->
+    <div class="col-lg-12">
+    <h1 class="page-header">Chating</h1>
+    </div>
+    <!--End Page Header -->
+  </div>
+
+  <div ng-controller="chatController" class="container">
+    <form ng-submit="addMessage()" name="messageForm">
+      <input type="text" placeholder="Compose a new message..." ng-model="message" />
+      <div class="info">
+        <span class="count" ng-bind="max - message.length" ng-class="{danger: message.length > max}">140</span>
+        <button ng-disabled="message.length > max || message.length === 0">Send</button>
+      </div>
+    </form>
+    <hr />
+    <p ng-repeat="message in messages | orderBy:'time':true" class="message">
+      <time>{{message.time | date:'HH:mm'}}</time>
+      <span ng-class="{self: message.self}">{{message.message}}</span>
+    </p>
+  </div>
+</div>
+<!-- end page-wrapper -->
+
+
+
+
+
+</div>
+<!-- end wrapper -->
+<my-footer></my-footer>

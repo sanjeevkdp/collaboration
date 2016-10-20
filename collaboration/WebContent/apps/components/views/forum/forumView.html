@@ -25,8 +25,8 @@
 								
 								<form ng-submit="forumViewCtrl.submitPost()">
 								<input type="hidden" ng-model="forumViewCtrl.forumPost.forumPost_id">
-									<input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription" class="form-control input-sm" placeholder="Enter tile"/>
-									<input type="submit" value="{{!forumViewCtrl.forumPost.forumPost_id ? 'Add forum' : 'Update'}}" class="btn btn-primary "/>
+									<input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription" class="form-control input-sm" placeholder="Enter tile" required="" />
+									<input type="submit" value="{{!forumViewCtrl.forumPost.forumPost_id ? 'Add forum' : 'Update'}}" class="btn btn-primary " ng-disabled="myForm.$invalid"/>
 								</form>
 
 							</div>

@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.niit.backend.Dao.ForumDao;
 import com.niit.backend.Dao.ForumPostDao;
-import com.niit.backend.model.Blog;
 import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
 import com.niit.backend.model.ModelClass;

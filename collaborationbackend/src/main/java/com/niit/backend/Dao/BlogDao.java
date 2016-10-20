@@ -3,7 +3,6 @@ package com.niit.backend.Dao;
 import java.util.List;
 
 import com.niit.backend.model.Blog;
-import com.niit.backend.model.Event;
 
 public interface BlogDao {
 	void saveOrUpdate(Blog blog);

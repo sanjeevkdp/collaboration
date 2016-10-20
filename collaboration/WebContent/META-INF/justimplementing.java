@@ -1,3 +1,5 @@
-JobOpportunities jobOportunitiesToDelete = new JobOpportunities();
-        jobOportunitiesToDelete.setForum_id(jobOportunities_id);
-        sessionFactory.getCurrentSession().delete(jobOportunitiesToDelete);
+//------------------- Update a UserDetails--------------------  String hql = "from UserDetails where userDetails_id=" + "'" + userDetails_id + "'";
+        Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+        List<UserDetails> listUserDetails = (List<UserDetails>) query.getResultList();
+        if (listUserDetails  != null && !listUserDetails .isEmpty()) {
+            return listUserDetails.get(0);

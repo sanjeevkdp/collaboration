@@ -1,75 +1,78 @@
 <menus-bar></menus-bar>
-  <sidemenu-bar></sidemenu-bar>
+<sidemenu-bar></sidemenu-bar>
 
- <div id="page-wrapper">
+<div id="page-wrapper">
 
-      <div class="row">
-        <!-- Page Header -->
-     <div class="col-lg-12">
-            <h1 class="page-header" style="color:rgb(3,73,49);font-style:bold"><span class="fa fa-calendar"> </span> Event</h1>
-        </div>
-        <!--End Page Header -->
-    </div> 
-    <div class="row">
-        <div class="col-lg-12">
-       <div ng-controller="eventController">
-        <div class="col-lg-3 col-lg-push-9">
-           <div class="demo-panel panel panel-default">                  
-                <div class="panel-heading">
-                    <h3 class="panel-title"><input type="button" class="btn btn-default form-control" style="background:rgb(102,204,204)" value="{{!eventCtrl.event.event_id ? 'Create Event' : 'Update Event'}}"/></h3>
-                </div>
-                <div class="panel-body">
-                       
-
-             
-             <form ng-submit="eventCtrl.submit()" name="myForm" >
-              <fieldset>
-                <input type="hidden" ng-model="eventCtrl.event.event_id" />
-                <div class="form-group">
-                <input type="text" ng-model="eventCtrl.event.eventName" id="eventName" class="form-control input-sm" placeholder="Enter tile" /></div>
-                <div class="form-group">
-                <input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Enter Content"/></div>
-                 <div class="form-group">
-                <input type="file" file-model="eventCtrl.myFile"/></div>
-                 <div class="form-group">
-                <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-primary " ng-disabled="myForm.$invalid">
-                <button type="button" ng-click="eventCtrl.reset()" class="btn btn-warning" >Reset Form</button> 
-                </div> 
-                </fieldset>            
-            </form>
-            </div>
-        </div>
+  <div class="row">
+    <!-- Page Header -->
+    <div class="col-lg-12">
+      <h1 class="page-header" style="color:rgb(3,73,49);font-style:bold"><span class="fa fa-calendar"> </span> Event</h1>
     </div>
-</div>
-<div class="col-lg-9 col-lg-pull-3">
-    <div class="row">
-        <div ng-repeat="event in eventCtrl.events">
-          <div class="col-lg-12">
-           <table class="table table-striped"> <tr> 
-            <th>event<a ng-click="eventCtrl.remove(event.event_id)"><span class="fa fa-times pull-right"></span></a>
+    <!--End Page Header -->
+  </div> 
+  <div class="row">
+    <div class="col-lg-12">
+     <div ng-controller="eventController">
+      <div class="col-lg-3 col-lg-push-9">
+       <div class="demo-panel panel panel-default">                  
+        <div class="panel-heading">
+          <h3 class="panel-title"><input type="button" class="btn btn-default form-control" style="background:rgb(102,204,204)" value="{{!eventCtrl.event.event_id ? 'Create Event' : 'Update Event'}}"/></h3>
+        </div>
+        <div class="panel-body">
+
+
+
+         <form ng-submit="eventCtrl.submit()" name="myForm" >
+          <fieldset>
+            <input type="hidden" ng-model="eventCtrl.event.event_id" />
+            <div class="form-group">
+              <input type="text" ng-model="eventCtrl.event.eventName" id="eventName" class="form-control input-sm" placeholder="Enter tile" required="" /></div>
+              <div class="form-group">
+                <input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Enter Content" required="" /></div>
+                <div class="form-group">
+                  <input type="file" file-model="eventCtrl.myFile" id="myFile"/></div>
+                  <div class="form-group">
+                    <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-primary " ng-disabled="myForm.$invalid">
+                    <button type="button" ng-click="eventCtrl.reset()" class="btn btn-warning" >Reset Form</button> 
+                  </div> 
+                </fieldset>            
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-lg-pull-3">
+        <div class="row">
+          <div ng-repeat="event in eventCtrl.events">
+            <div class="col-lg-12">
+             <table class="table table-striped"> <tr> 
+              <th>event<a ng-click="eventCtrl.remove(event.event_id)"><span class="fa fa-times pull-right"></span></a>
                 <a ng-click="eventCtrl.edit(event.event_id)" ><span class="fa fa-pencil pull-right" ></span></a>
-            </th> </tr>                                 
-            <tbody>
-               <td ng-if='$odd' style="background:#AED6F1"> <a>{{event.eventName}}</a>
-                   <p>{{event.description}}</p>
-                   <p>Date:{{event.createdAt|date}}</p>
+              </th> </tr>                                 
+              <tbody>
+               <td ng-if='$odd' style="background:#AED6F1"> <h4><strong>Title :</strong>{{event.eventName}}</h4>
+                 <p><strong>Description :</strong>{{event.description}}</p>
+                 <p><img ng-src="./assets/img/{{event.event_id}}.png" class="e_image img-rounded img-responsive profile-image" alt="" >
+                 </p><br> 
+                 <p>Date:{{event.createdAt|date}}</p>
                </td>
-               <td ng-if='$even' style="background:#D1F2EB"> <a>{{event.eventName}}</a>
-                   <p>{{event.description}}</p>
-                   <p>Date:{{event.createdAt|date:'medium'}}</p>
+               <td ng-if='$even' style="background:#D1F2EB"> <h4><strong>Title :</strong>{{event.eventName}}</h4>
+                 <p><strong>Description :</strong>{{event.description}}</p>
+                 <p><img ng-src="./assets/img/{{event.event_id}}.png" class=" e_image img-rounded img-responsive profile-image" alt="">
+                 </p><br> 
+                 <p>Date:{{event.createdAt|date:'medium'}}</p>
                </td></tbody>
-           </table>
+             </table>
+           </div>
+         </div>
+
        </div>
+     </div>
+
    </div>
-
-</div>
-</div>
-
-</div>
-</div>
+ </div>
 
 
-</div>
 
 
 
@@ -82,4 +85,4 @@
 
 </div>
 <!-- end wrapper -->
- <my-footer></my-footer>
+<my-footer></my-footer>

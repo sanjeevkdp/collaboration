@@ -18,37 +18,37 @@
               <fieldset>
                 <div class="form-group">
 
-                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_ALUMNI">     Alumni                 
+                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_ALUMNI" >     Alumni                 
                  <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_EMPLOYEE">     Employee                
-                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_STUDENT">   Students
+                 <input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="ROLE_STUDENT" checked>   Students
 
                </div>
                <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.userName" placeholder="Name" name="name" type="name" autofocus>
+                <input class="form-control" ng-model="userCtrl.userDetails.userName" placeholder="Name" name="name" type="name" required="" autofocus>
               </div>
               <div class="form-group">
-                <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="male" >Male
+                <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="male" checked>Male
                 <input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="female">Female
               </div>
               <div class="form-group">
                 <label for="birthday">Birthday</label>
-                <input class="form-control" ng-model="userCtrl.userDetails.dateOfBirth" type="date" name="bday">
+                <input class="form-control" ng-model="userCtrl.userDetails.dateOfBirth" type="date" name="bday" required="" >
               </div>
               <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.email" placeholder="E-mail" name="email" type="email">
+                <input class="form-control" ng-model="userCtrl.userDetails.email" placeholder="E-mail" name="email" type="email" required="">
               </div>
               <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.phoneNo" placeholder="please enter Phone number" name="number" type="PhoneNumber" >
+                <input class="form-control" ng-model="userCtrl.userDetails.phoneNo" placeholder="please enter Phone number" name="number" type="PhoneNumber" required=""  >
               </div>
               <div class="form-group">
-                <input class="form-control" ng-model="userCtrl.userDetails.password" placeholder="Password" name="password" type="password" value="">
+                <input class="form-control" ng-model="userCtrl.userDetails.password" placeholder="Password" name="password" type="password" value="" required="" >
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Confirm Password" name="password" type="password" value="">
+                <input class="form-control" placeholder="Confirm Password" name="password" type="password" value="" required="" >
               </div>
 
               <!-- Change this to a button or input when using this as a form -->
-              <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block"/>
+              <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block" ng-disabled="myForm.$invalid"/>
               <a type="button" href="#login" class="btn btn-lg btn-success btn-block">Cancel</a>
             </fieldset>
           </form>

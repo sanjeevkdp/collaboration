@@ -20,4 +20,6 @@ void saveOrUpdate(UserDetails userDetails);
 
 	UserDetails checkUser(String username, String password);
 
+	UserDetails findById(String userDetails_id);
+
 }

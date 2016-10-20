@@ -3,12 +3,25 @@ profileService.factory('UserService', ['$http','$q', function($http,$q){
      var REST_SERVICE_URI='http://localhost:8080/collaborationbackend/userDetails/';
      
      var factory={
+        fetchSingleUser:fetchSingleUser,
      	fetchAllUser: fetchAllUser,
      	createUser:createUser,
         updateUser:updateUser,
         deleteUser:deleteUser
      };
 	return factory;
+function fetchSingleUser(userDetails_id){
+    var deferred=$q.defer();
+    $http.get(REST_SERVICE_URI+userDetails_id).then(
+        function(response){
+            deferred.resolve(response.data);
+        },
+        function(errResponse){
+            console.error('error while fecting user');
+            deferred.reject(errResponse);
+        });
+    return deferred.promise;
+}
 
 	function fetchAllUser(){
 		var deferred = $q.defer();

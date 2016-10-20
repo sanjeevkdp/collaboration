@@ -1,15 +1,26 @@
 var profile=angular.module('collaborationAppProfile',['controllerProfileService','ngRoute']);
-profile.controller('profileController',[ '$scope','UserService','$http',function($scope,UserService,$http){
+profile.controller('profileController',[ '$scope','UserService','$http','$routeParams',function($scope,UserService,$http,$routeParams){
 	var self=this;
 	self.userDetails={userDetails_id:'',userName:'',password:'',email:'',gender:'',status:'',gender:'',phoneNo:'',dateOfBirth:''}
 	self.userDetailss=[];
-
+	self.user=[];
 	self.submit = submit;
 	self.edit=edit;
 	self.remove=remove;
 	self.reset=reset;
 
 
+	fetchSingleUser();
+	function fetchSingleUser(){
+		var userDetails_id = $routeParams.userDetails_id;
+		UserService
+		.fetchSingleUser(userDetails_id)
+		.then(function(data){
+			self.user=data;
+		},function(errResponse){
+			console.error('error while fetching single user',self.userDetails_id);
+		});
+	}
 	fetchAllUser();
 	function fetchAllUser(){
 		UserService
@@ -21,6 +32,7 @@ profile.controller('profileController',[ '$scope','UserService','$http',function
 		}
 		);
 	}
+	
 
 	function createUser(userDetails){
 		UserService
@@ -91,6 +103,6 @@ profile.controller('profileController',[ '$scope','UserService','$http',function
     function reset(){
     	self.userDetails={userDetails_id:'',description:'',userDetailsName:''};
        // $scope.myForm.$setPristine(); //reset Form
-    }
-    
+   }
+
 }]);

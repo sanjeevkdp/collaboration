@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.BlogDao;
 import com.niit.backend.model.Blog;
-import com.niit.backend.model.Event;
 @Repository("blogDao")
 @Transactional
 public class BlogDaoImpl implements BlogDao {
